@@ -11,6 +11,7 @@
   <body>
     {% block header %}
       <header>
+        <h1><a href="{% url 'home' %}">Educa</a></h1>
         <h1>
           Hello,{% if user.is_authenticated %}
             {{ user.username }}
@@ -24,6 +25,9 @@
                   {% csrf_token %}
                   <button type="submit">Logout</button>
                 </form>
+              </li>
+              <li>
+                <a href="{% url 'password_change' %}">Pasword Change</a>
               </li>
 
             {% else %}

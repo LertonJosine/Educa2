@@ -9,5 +9,7 @@
         <button type="submit">Login</button>
 
     </form>
+    <p>Forgot your password? <a href="{% url 'password_reset' %}">Reset Pasword</a></p>
+    <p>Don't have an account? <a href="{% url 'signup' %}">Signup.</a></p>
 </p>
 {% endblock %}
