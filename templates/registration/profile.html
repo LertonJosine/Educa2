@@ -1,10 +1,10 @@
 {% extends '../_base.html' %}
 {% load static %}
 {% block main %}
-   <!-- ======= Breadcrumbs ======= -->
-   <div class="breadcrumbs" data-aos="fade-in">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
     <div class="container">
-      <h2>Reset Password</h2>
+      <h2>Profile</h2>
     </div>
   </div>
   <!-- End Breadcrumbs -->
@@ -14,10 +14,12 @@
         <div class="col-lg-8 mt-5 mt-lg-0">
           <form action="" method="post" role="form" class="php-email-form">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" >Send</button>
+            <p>{{ form.username }}</p>
+            <p>{{ form.email }}</p>
+            <button type="submit">Update</button><p>
+              <a href="{% url 'password_change' %}">Change Password.</a>
+            </p>
           </form>
-         
         </div>
       </div>
     </div>
@@ -35,4 +37,5 @@
   </script>
 {% endblock %}
 {% block footer %}
+
 {% endblock %}
