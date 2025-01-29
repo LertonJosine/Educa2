@@ -7,6 +7,15 @@ services:
       - .:/Educa
     ports:
       - 8000:8000
+    environment:
+      - DJANGO_SECRET_KEY=django-insecure-2w66jn@k9b7tb40$h-rxr4h@al=giw=@1@ng+kn4_#t*!gxihh
+      - DJANGO_DEBUG=False
+      - DB_ENGINE=django.db.backends.postgresql
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
     depends_on:
       - db
 

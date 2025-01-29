@@ -32,7 +32,8 @@
     nav_links.forEach((link) => {
       if (link.innerText == 'More') {
         link.classList.add('active')
-      } else if (link.innerText == 'Home') {
+      }
+      if (link.innerText == 'Home') {
         link.classList.remove('active')
       }
     })
