@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import resolve, reverse
 from .forms import CustomUserCreationForm
-from .views import SignUpView
+from .views import SignUpView, Profile
 
 
 class ModeloUsuario(TestCase):
@@ -50,4 +50,38 @@ class SignupTests(TestCase):
     def test_signup_page_use_correct_view(self):
         view = resolve(reverse('signup'))
         self.assertEqual(view.func.__name__, SignUpView.as_view().__name__)
+
+
+class ProfileTests(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username='test',
+            email='test@gmail.com',
+            password='test123'
+        )
         
+        self.user_2 = get_user_model().objects.create_user(
+            username='test2',
+            email='test2@gmail.com',
+            password='test123'
+        )
+        
+        self.client.login(username=self.user.username, password='test123')
+        url = reverse('profile', args=[self.user.pk])
+        self.response = self.client.get(url)
+    
+    def test_profile_page_name(self):
+        self.assertEqual(self.response.status_code, 200)
+    
+    def test_profile_user_access_only_his_data(self):
+        response = self.client.get(reverse('profile', args=[self.user_2.pk]))
+        self.assertEqual(response.status_code, 403)
+    
+    def test_profile_template(self):
+        self.assertTemplateUsed(self.response, 'registration/profile.html')
+        self.assertContains(self.response, 'Profile')
+    
+    def test_profile_uses_correct_view(self):
+        view = resolve(reverse('profile', args=[self.user.pk]))
+        self.assertEqual(view.func.__name__, Profile.as_view().__name__)
+                
