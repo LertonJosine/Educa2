@@ -7,6 +7,7 @@ class ListCoursesView(ListView):
     model = Course
     template_name = 'list_courses.html'
     context_object_name = 'courses'
+    permission_required = ('special_status')
 
 
 class CourseDetailsPageView(DetailView):

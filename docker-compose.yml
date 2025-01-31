@@ -16,6 +16,11 @@ services:
       - DB_PASSWORD=postgres
       - DB_HOST=db
       - DB_PORT=5432
+      - DJANGO_EMAIL_HOST=smtp.gmail.com
+      - DJANGO_EMAIL_HOST_USER=lertonjosine@gmail.com
+      - DJANGO_EMAIL_HOST_PASSWORD=adrrmefxpmtzmwmk
+      - DJANGO_EMAIL_USE_TLS=True
+      - DJANGO_EMAIL_PORT=587
     depends_on:
       - db
 
