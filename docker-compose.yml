@@ -8,8 +8,8 @@ services:
     ports:
       - 8000:8000
     environment:
-      - DJANGO_SECRET_KEY=django-insecure-2w66jn@k9b7tb40$h-rxr4h@al=giw=@1@ng+kn4_#t*!gxihh
-      - DJANGO_DEBUG=True
+      - DJANGO_SECRET_KEY=qWeE7yDdXH10WmxcPCf2J6EiTK-ZXI7fnpN1E8LJr_hOkCnWjxM
+      - DJANGO_DEBUG=False
       - DB_ENGINE=django.db.backends.postgresql
       - DB_NAME=postgres
       - DB_USER=postgres
@@ -21,6 +21,12 @@ services:
       - DJANGO_EMAIL_HOST_PASSWORD=adrrmefxpmtzmwmk
       - DJANGO_EMAIL_USE_TLS=True
       - DJANGO_EMAIL_PORT=587
+      - DJANGO_SECURE_SSL_REDIRECT=True
+      - DJANGO_SECURE_HSTS_SECONDS=2592000
+      - DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+      - DJANGO_SECURE_HSTS_PRELOAD=True
+      - DJANGO_SESSION_COOKIE_SECURE=True
+      - DJANGO_CSRF_COOKIE_SECURE=True
     depends_on:
       - db
 
