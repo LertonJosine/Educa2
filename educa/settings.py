@@ -24,6 +24,7 @@ DEBUG = env.bool('DJANGO_DEBUG')
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    'educa2-i2j1.onrender.com'
 ]
 
 

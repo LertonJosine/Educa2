@@ -27,6 +27,7 @@ services:
       - DJANGO_SECURE_HSTS_PRELOAD=True
       - DJANGO_SESSION_COOKIE_SECURE=True
       - DJANGO_CSRF_COOKIE_SECURE=True
+      - DJANGO_DB_URL=postgresql://lerton:NpbEgQHDmMjIZX3jNyMlNiLhL6zy6THI@dpg-cueue7tumphs73alsaa0-a/educa_db
     depends_on:
       - db
 
